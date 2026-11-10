@@ -250,21 +250,21 @@ const baseConfig = {
     hint: "Tepat 8 bit per oktet",
     suffix: "BIN",
     placeholder: "Contoh: 11000000.10101000.00000001.00000001",
-    example: "11000000.10101000.00000001.00000001"
+    example: () => randomOctets().map(n => n.toString(2).padStart(8, "0")).join(".")
   },
   octal: {
     label: "Masukkan angka oktal",
     hint: "0 sampai 377 per oktet",
     suffix: "OKT",
     placeholder: "Contoh: 300.250.1.1",
-    example: "300.250.1.1"
+    example: () => randomOctets().map(n => n.toString(8)).join(".")
   },
   hexadecimal: {
     label: "Masukkan angka heksadesimal",
     hint: "00 sampai FF per oktet",
     suffix: "HEKS",
     placeholder: "Contoh: C0.A8.01.01",
-    example: "C0.A8.01.01"
+    example: () => randomOctets().map(n => n.toString(16).toUpperCase().padStart(2, "0")).join(".")
   }
 };
 
