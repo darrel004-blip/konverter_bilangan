@@ -233,19 +233,16 @@ h2 { margin: 0; font-size: 19px; letter-spacing: -.65px; }
     </footer>
   </main>
   <script>
-
-const randomOctet = () => Math.floor(Math.random() * 256); // 0-255
-
-const randomIP = () =>
-  Array.from({ length: 4 }, randomOctet).join(".");
-
+    
+const randomOctets = () => Array.from({ length: 4 }, randomOctet);
+    
 const baseConfig = {
   decimal: {
     label: "Masukkan angka desimal",
     hint: "0 sampai 255 per oktet",
     suffix: "DES",
     placeholder: "Contoh: 192.168.1.1",
-    example: randomIP
+    example: () => randomOctets().map(n => n.toString(2).padStart(8, "0")).join(".")
   },
   binary: {
     label: "Masukkan angka biner",
