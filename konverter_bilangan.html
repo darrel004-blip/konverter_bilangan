@@ -352,7 +352,8 @@ document.querySelectorAll(".base-option").forEach((button) => {
 });
 
 document.getElementById("exampleButton").addEventListener("click", () => {
-  sourceInput.value = baseConfig[selectedBase].example;
+  const ex = baseConfig[selectedBase].example;
+  sourceInput.value = typeof ex === "function" ? ex() : ex;
   hideFeedback();
   sourceInput.focus();
 });
