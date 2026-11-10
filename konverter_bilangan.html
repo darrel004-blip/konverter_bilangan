@@ -234,6 +234,7 @@ h2 { margin: 0; font-size: 19px; letter-spacing: -.65px; }
   </main>
   <script>
     
+const randomOctet = () => Math.floor(Math.random() * 256); // 0-255
 const randomOctets = () => Array.from({ length: 4 }, randomOctet);
     
 const baseConfig = {
@@ -242,7 +243,7 @@ const baseConfig = {
     hint: "0 sampai 255 per oktet",
     suffix: "DES",
     placeholder: "Contoh: 192.168.1.1",
-    example: () => randomOctets().map(n => n.toString(2).padStart(8, "0")).join(".")
+    example: () => randomOctets().join(".")
   },
   binary: {
     label: "Masukkan angka biner",
